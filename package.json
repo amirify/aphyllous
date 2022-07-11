@@ -1,7 +1,7 @@
 {
-  "name": "aphyllous-react-components",
+  "name": "@amirify/aphyllous",
   "version": "0.0.1",
-  "description": "React component library",
+  "description": "Utility-first React component library.",
   "scripts": {
     "rollup": "rollup -c"
   },
@@ -20,5 +20,8 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": ["dist"],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/amirify"
+  }
 }
