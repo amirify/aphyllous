@@ -1,7 +1,8 @@
-import resolve from "@rollup/plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "rollup-plugin-typescript2";
+import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -21,14 +22,16 @@ export default [
             }
         ],
         plugins: [
-            resolve(),
+            nodeResolve(),
             commonjs(),
-            typescript()
+            typescript(),
+            postcss()
         ]
     },
     {
         input: "dist/esm/index.d.ts",
         output: [{file: "dist/index.d.ts", format: "esm"}],
-        plugins: [dts()]
+        plugins: [dts()],
+        external: [/\.css$/]
     }
 ];
