@@ -1,0 +1,169 @@
+:root {
+    --aph-offcanvas-width: 400px;
+    --aph-offcanvas-scale-ratio: 0.25;
+    --aph-offcanvas-transition-duration: 0.7s;
+}
+
+@keyframes aph-offcanvas-open {
+    0% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(-100%, -50%) scale(var(--aph-offcanvas-scale-ratio));
+    }
+
+    33% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(0, -50%) scale(var(--aph-offcanvas-scale-ratio));
+    }
+
+    66% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(0, -50%) scale(1);
+    }
+
+    100% {
+        top: 0;
+        width: var(--aph-offcanvas-width);
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        overflow: auto;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes aph-offcanvas-close {
+    0% {
+        top: 0;
+        width: var(--aph-offcanvas-width);
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        overflow: hidden;
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(0, -50%) scale(1);
+    }
+
+    66% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(0, -50%) scale(var(--aph-offcanvas-scale-ratio));
+    }
+
+    100% {
+        top: 50%;
+        width: var(--aph-offcanvas-width);
+        height: var(--aph-offcanvas-width);
+        max-height: 100vw;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: translate(-100%, -50%) scale(var(--aph-offcanvas-scale-ratio));
+    }
+}
+
+.aph-offcanvas {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: var(--aph-offcanvas-width);
+    height: var(--aph-offcanvas-width);
+    max-width: 100vw;
+    max-height: 100vw;
+    padding-top: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    transform: translate(-100%, -50%) scale(0.3);
+    box-sizing: border-box;
+    animation-fill-mode: forwards;
+    animation-duration: var(--aph-offcanvas-transition-duration);
+    animation-timing-function: linear;
+}
+
+.aph-offcanvas.aph-open {
+    animation-name: aph-offcanvas-open;
+}
+
+.aph-offcanvas.aph-close {
+    animation-name: aph-offcanvas-close;
+}
+
+.aph-offcanvas-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    transition: opacity var(--aph-offcanvas-transition-duration);
+    cursor: pointer;
+}
+
+.aph-offcanvas-close:hover {
+    opacity: 0.5;
+}
+
+.aph-offcanvas-close > span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+}
+
+.aph-offcanvas-close > span:nth-child(1) {
+    transform: translate(-50%, -50%) rotateZ(45deg);
+}
+
+.aph-offcanvas-close > span:nth-child(2) {
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+.aph-offcanvas::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: inherit;
+    opacity: 1;
+    visibility: visible;
+    transition-property: opacity , visibility;
+    transition-duration: var(--aph-offcanvas-transition-duration);
+    transition-delay: 0s;
+}
+
+.aph-offcanvas.aph-open::after {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: var(--aph-offcanvas-transition-duration);
+}
