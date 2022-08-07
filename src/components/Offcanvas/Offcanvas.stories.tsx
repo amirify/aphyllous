@@ -6,15 +6,20 @@ import Offcanvas from './Offcanvas';
 export default {title: 'Offcanvas', component: Offcanvas,} as ComponentMeta<typeof Offcanvas>;
 
 //We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof Offcanvas> = (args) => <Offcanvas {...args}>children</Offcanvas>;
+const Template: ComponentStory<typeof Offcanvas> = (args) => <Offcanvas {...args}/>;
 
 export const OffcanvasStory = Template.bind({});
 
 OffcanvasStory.args = {
     children: "Hello World!",
-    backgroundColor: "#50ffe0",
     className: "",
-    closeButtonColor: "#000",
+    styles: {backgroundColor: '#00FF8F'},
     buttonLabel: "Open Offcanvas",
-    buttonClassName: ""
+    buttonClassName: "",
+    buttonStyles: {
+        backgroundColor: '#FF22EE',
+        color: '#FFF'
+    },
+    closeButtonBackgroundClass: "",
+    closeButtonBackgroundStyle: {backgroundColor: '#000'},
 };

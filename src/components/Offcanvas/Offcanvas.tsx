@@ -3,11 +3,13 @@ import './Offcanvas.css';
 
 export interface OffcanvasProps {
     children: any;
-    backgroundColor: string;
     className: string;
+    styles: Object;
     buttonLabel: string;
     buttonClassName: string;
-    closeButtonColor: string;
+    buttonStyles: Object;
+    closeButtonBackgroundClass: string;
+    closeButtonBackgroundStyle: Object;
 }
 
 export default function Offcanvas(props: OffcanvasProps) {
@@ -17,14 +19,14 @@ export default function Offcanvas(props: OffcanvasProps) {
     return (
         <>
             <button onClick={() => toggleOffcanvasState('aph-open')}
-                    className={props.buttonClassName}>
+                    className={props.buttonClassName} style={props.buttonStyles}>
                 {props.buttonLabel}
             </button>
-            <div style={{backgroundColor: props.backgroundColor || "#FFF"}}
-                 className={`aph-offcanvas ${offcanvasState} ${props.className}`}>
+            <div className={`aph-offcanvas ${offcanvasState} ${props.className}`}
+                 style={props.styles}>
                 <button onClick={() => toggleOffcanvasState('aph-close')} className="aph-offcanvas-close">
-                    <span style={{backgroundColor: props.closeButtonColor || "#000"}}/>
-                    <span style={{backgroundColor: props.closeButtonColor || "#000"}}/>
+                    <span className={props.closeButtonBackgroundClass} style={props.closeButtonBackgroundStyle}/>
+                    <span className={props.closeButtonBackgroundClass} style={props.closeButtonBackgroundStyle}/>
                 </button>
                 {props.children}
             </div>

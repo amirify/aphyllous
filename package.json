@@ -1,7 +1,7 @@
 {
   "name": "@amirify/aphyllous",
-  "version": "0.1.1",
-  "description": "React stateful components library. Easy to style through props and css classes.",
+  "version": "0.1.2",
+  "description": "React stateful components library. Easy to style through props.",
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
