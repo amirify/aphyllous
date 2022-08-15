@@ -14,17 +14,17 @@ export interface OffcanvasProps {
 
 export default function Offcanvas(props: OffcanvasProps) {
 
-    const [offcanvasState, toggleOffcanvasState] = useState('');
+    const [state, setState] = useState('');
 
     return (
         <>
-            <button onClick={() => toggleOffcanvasState('aph-open')}
+            <button onClick={() => setState('aph-open')}
                     className={props.buttonClassName} style={props.buttonStyles}>
                 {props.buttonLabel}
             </button>
-            <div className={`aph-offcanvas ${offcanvasState} ${props.className}`}
+            <div className={`aph-offcanvas ${state} ${props.className}`}
                  style={props.styles}>
-                <button onClick={() => toggleOffcanvasState('aph-close')} className="aph-offcanvas-close">
+                <button onClick={() => setState('aph-close')} className="aph-offcanvas-close">
                     <span className={props.closeButtonBackgroundClass} style={props.closeButtonBackgroundStyle}/>
                     <span className={props.closeButtonBackgroundClass} style={props.closeButtonBackgroundStyle}/>
                 </button>

@@ -1,0 +1,70 @@
+.aph-accordion-header.aph-default {
+    margin: 0;
+}
+
+.aph-accordion-button {
+    position: relative;
+    cursor: pointer;
+    padding-right: 32px;
+}
+
+.aph-accordion-button > i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-12px, -4px);
+}
+
+.aph-accordion-button > i.aph-default {
+    background-color: #000000;
+}
+
+.aph-accordion-button > i::before,
+.aph-accordion-button > i::after {
+    content: "";
+    transition: all 0.7s ease-in-out;
+    position: absolute;
+    background-color: inherit;
+    width: 2px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.aph-accordion-button > i::before {
+    transform: translate(4px, 0) rotate(45deg);
+}
+
+.aph-accordion-button > i::after {
+    transform: translate(-4px, 0) rotate(-45deg);
+}
+
+.aph-accordion-button.aph-open > i::before {
+    transform: translate(-4px, 0) rotate(45deg);
+}
+
+.aph-accordion-button.aph-open > i::after {
+    transform: translate(4px, 0) rotate(-45deg);
+}
+
+.aph-accordion-collapse {
+    overflow: hidden;
+}
+
+.aph-accordion-content {
+    position: relative;
+    max-height: 0;
+    max-width: 400px;
+    opacity: 0;
+    transform: translate(0, 50%);
+    transition-property: max-height, opacity, transform;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.aph-accordion-content.aph-open {
+    max-height: 768px;
+    opacity: 1;
+    transform: translate(0, 0);
+}
